@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "npx prisma migrate deploy && node src/index.js",
+    "start": "npx prisma db push --accept-data-loss && node src/index.js",
     "dev": "nodemon src/index.js",
     "build": "prisma generate",
     "migrate": "prisma migrate deploy",
