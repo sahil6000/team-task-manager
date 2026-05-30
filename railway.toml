@@ -3,5 +3,7 @@ builder = "NIXPACKS"
 buildCommand = "npm run install:all && npm run build"
 
 [deploy]
-startCommand = "cd server && npm start"
+startCommand = "cd server && npx prisma db push && npm start"
 restartPolicyType = "ON_FAILURE"
+
+
