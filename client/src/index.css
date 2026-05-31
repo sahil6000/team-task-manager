@@ -3,12 +3,72 @@
 @tailwind utilities;
 
 html, body, #root { height: 100%; }
-body { font-family: 'Inter', system-ui, sans-serif; background: #F8FAFC; color: #0F172A; }
+body { font-family: 'Inter', system-ui, sans-serif; }
+
+/* ── LIGHT MODE (default) ── */
+:root {
+  --bg-page:    #F8FAFC;
+  --bg-card:    #FFFFFF;
+  --bg-sidebar: #0F172A;
+  --bg-input:   #FFFFFF;
+  --bg-column:  #F1F5F9;
+  --text-primary:   #0F172A;
+  --text-secondary: #64748B;
+  --text-sidebar:   #CBD5E1;
+  --border:     #E2E8F0;
+  --shadow:     0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* ── DARK MODE ── */
+html.dark {
+  --bg-page:    #0F172A;
+  --bg-card:    #1E293B;
+  --bg-sidebar: #020617;
+  --bg-input:   #1E293B;
+  --bg-column:  #1E293B;
+  --text-primary:   #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-sidebar:   #94A3B8;
+  --border:     #334155;
+  --shadow:     0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* ── EYE SAVE MODE ── */
+html.eyesave {
+  --bg-page:    #2C2010;
+  --bg-card:    #352818;
+  --bg-sidebar: #1A1208;
+  --bg-input:   #352818;
+  --bg-column:  #2C2010;
+  --text-primary:   #F5E6C8;
+  --text-secondary: #C4A882;
+  --text-sidebar:   #C4A882;
+  --border:     #5C4020;
+  --shadow:     0 1px 3px rgba(0,0,0,0.4);
+  filter: sepia(20%) brightness(0.92);
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
 
 .btn { @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition focus:outline-none focus:ring-2 focus:ring-brand-500/40; }
 .btn-primary { @apply btn bg-brand-500 text-white hover:bg-brand-600; }
-.btn-secondary { @apply btn bg-white border border-slate-200 text-slate-700 hover:bg-slate-50; }
+.btn-secondary { @apply btn border text-sm font-medium transition; background: var(--bg-card); color: var(--text-primary); border-color: var(--border); }
+.btn-secondary:hover { filter: brightness(0.96); }
 .btn-danger { @apply btn bg-red-500 text-white hover:bg-red-600; }
-.input { @apply w-full px-3 py-2 rounded-lg border border-slate-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500; }
-.label { @apply block text-sm font-medium text-slate-700 mb-1; }
-.card { @apply bg-white rounded-xl border border-slate-200 shadow-sm; }
+
+.input {
+  @apply w-full px-3 py-2 rounded-lg border text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/40 focus:border-brand-500;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+.label { @apply block text-sm font-medium mb-1; color: var(--text-secondary); }
+.card {
+  @apply rounded-xl border;
+  background: var(--bg-card);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
