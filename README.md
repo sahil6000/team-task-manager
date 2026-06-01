@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/check-square.svg" width="80" height="80" style="filter: invert(1)" />
+<img src="./assets/logo.svg" width="100" height="100" />
 
 # ⚡ TaskFlow
 
